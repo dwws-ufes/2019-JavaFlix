@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frameweb:FramewebProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:frameweb="http://nemo.inf.ufes.br/projects/frameweb/FW-2015" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <compose xsi:type="frameweb:EntityModel" name="PHP">
+    <packagedElement xsi:type="uml:PrimitiveType" name="Boolean"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="Integer"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="Float"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="String"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="Array"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="Iterable"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="Object"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="Resource"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="NULL"/>
+    <packagedElement xsi:type="uml:PrimitiveType" name="Callback"/>
+    <packagedElement xsi:type="uml:Class" name="Date"/>
+    <packagedElement xsi:type="uml:Class" name="Collection"/>
+  </compose>
+</frameweb:FramewebProject>
