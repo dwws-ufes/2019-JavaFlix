@@ -1,0 +1,56 @@
+<div class="container">
+        <div class="card list-category">
+          <h5 class="card-header">Category List</h5>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col" colspan="2">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-template [ngIf]="categories.length !== 0" [ngIfElse]="notFound">
+                  <tr *ngFor="let category of categories">
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>
+                      <button type="button" class="btn btn-warning btn-sm" (click)="editCategory(category)">
+                        <i class="fa fa-pencil"></i>&nbsp;
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-danger btn-sm" (click)="deleteCategory(category)">
+                        <i class="fa fa-trash"></i>&nbsp;
+                      </button>
+                    </td>
+                  </tr>
+                </ng-template>
+                <ng-template #notFound>
+                  <tr>
+                    <td colspan="7">Categories not found!</td>
+                  </tr>
+                </ng-template>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      
+        <div class="card add-show">
+          <h5 class="card-header">Add/Edit Category</h5>
+          <div class="card-body">
+            <form id="add-form" (ngSubmit)="f.form.valid && saveCategory(f)" #f="ngForm" novalidate>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Type the name" [(ngModel)]="category.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required>
+                <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                    <div *ngIf="name.errors.required">Name is required</div>
+                </div>
+              </div>
+                <button type="submit" class="btn btn-primary btn-add-show">Save</button>
+                <button type="reset" class="btn btn-primary btn-add-show mx-2" (click)="clearForm(f)">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>

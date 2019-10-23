@@ -1,0 +1,58 @@
+<div class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a routerLink="/"><b>Java</b>Flix</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <p class="login-box-msg">Register a new membership</p>
+      <form id="register-form" #f="ngForm" (ngSubmit)="f.form.valid && registerUser()">
+        <div class="form-group has-feedback">
+          <input [(ngModel)]="loginUserData.name" #name="ngModel" name="name" type="name" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid || error.name }" placeholder="Nome" required>
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+            <div *ngIf="name.errors.required">Name is required</div>
+          </div>
+          <!-- <div class="alert alert-danger" [hidden]="!error.name">{{ error.name }}</div> -->
+          <div *ngIf="error.name" class="invalid-feedback">
+            <div>{{ error.name }}</div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input [(ngModel)]="loginUserData.email" #email="ngModel" name="email" type="email" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid ||  error.email }" placeholder="Email" required>
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+            <div *ngIf="email.errors.required">E-mail is required</div>
+          </div>
+          <div *ngIf="error.email" class="invalid-feedback">
+            <div>{{ error.email }}</div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input [(ngModel)]="loginUserData.password" #password="ngModel" name="password" type="password" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && password.invalid || error.password}" placeholder="Password" required>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <!-- <div class="alert alert-danger" [hidden]="!error.password">{{ error.password }}</div> -->
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input [(ngModel)]="loginUserData.password_confirmation" #password_confirmation="ngModel" name="password_confirmation" type="password" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && password_confirmation.invalid || error.password }" placeholder="Confirm Password" required>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <div *ngIf="f.submitted && password_confirmation.invalid" class="invalid-feedback">
+            <div *ngIf="password_confirmation.errors.required">Password Confirmation is required</div>
+          </div>
+          <!-- <div class="alert alert-danger" [hidden]="!error.password">{{ error.password }}</div> -->
+          <div *ngIf="error.password" class="invalid-feedback">
+            <div>{{ error.password }}</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+      </form>
+      <a routerLink="/login" class="text-center">I already have a membership</a>
+    </div>
+    <!-- /.login-box-body -->
+  </div>
+</div>
